@@ -19,7 +19,7 @@ const Movies = () => {
     const searchMovies = async () => {  
       try {
         setIsLoading(true);
-        const response = await api.get('/search/search-movies', {
+        const response = await api.get('/search/movie', {
           params: { query },
         });
         setSearchResults(response.data.results);

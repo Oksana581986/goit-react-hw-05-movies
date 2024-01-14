@@ -18,7 +18,7 @@ const MovieDetails = () => {
 
     const fetchMovieDetails = async () => {
       try {
-        const response = await api.get(`/movies/get-movie-details/${movieId}`);
+        const response = await api.get(`/movie/${movieId}`);
         setMovieDetails(response.data);
       } catch (error) {
         setError('Error fetching images. Please try again.');

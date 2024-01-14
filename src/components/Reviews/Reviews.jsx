@@ -9,7 +9,7 @@ useEffect(() => {
   const fetchReviews = async () => {
     try {
       setIsLoading(true);
-       const response = await api.get(`/movies/get-movie-reviews/${movieId}`);
+       const response = await api.get(`/movie/${movieId}/reviews/`);
       setReviews(response.data.reviews);
     } catch (error) {
       console.error("Error fetching reviews:", error);

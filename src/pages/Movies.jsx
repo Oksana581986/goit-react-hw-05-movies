@@ -3,13 +3,14 @@ import api from "components/services/api";
 import { toast } from "react-toastify";
 import { Loader } from "components/Loader/Loader";
 import { useSearchParams } from "react-router-dom";
-import { MovieList } from "components/MovieList/MovieList";
+import { Link, useLocation } from "react-router-dom";
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
   const query = searchParams.get('query');
 
@@ -50,11 +51,16 @@ const Movies = () => {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button type="submit">Search</button>
+        {isLoading && <Loader />}
         {searchResults.map((movie) => (
-        <MovieList key={movie.id} movie={movie} />
-))}
+    <li key={movie.id}>
+    <Link state={{ from: location }} to={`/movies/${movie.id}`}>
+      {movie.title}
+    </Link>
+    </li>
+ ))}
       </form>
-      {isLoading && <Loader />}
+
     </div>
   );
 };

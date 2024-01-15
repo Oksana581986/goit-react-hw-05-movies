@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink  } from 'react-router-dom';
+import { NavLink, Outlet  } from 'react-router-dom';
 import css from "components/App.module.css";
 
 
@@ -13,6 +13,7 @@ const Layout = ({ children} ) => {
 
 <main> 
   {children}
+  <Outlet/>
 </main>
    </div>
   )

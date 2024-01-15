@@ -10,18 +10,17 @@ const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 
-
 export default function App () {
 
   return (
    <Layout>
     <Suspense fallback={<Loader className={css.loader} />}>
       <Routes>
-       <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
        <Route path="/movies" element={<Movies />} />
        <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-       <Route path="/movies/:movieId/cast" element={<Cast />} />
-       <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+       <Route path="cast" element={<Cast />} />
+       <Route path="reviews" element={<Reviews />} />
        <Route path="*" element={<Navigate to="/" />} />
      </Routes>
     </Suspense>

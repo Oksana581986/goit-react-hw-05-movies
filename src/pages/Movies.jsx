@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "components/services/api";
 import { toast } from "react-toastify";
 import { Loader } from "components/Loader/Loader";
-import { useSearchParams } from "react-router-dom";
-import { Link, useLocation } from "react-router-dom";
+import { useSearchParams, Link, useLocation } from "react-router-dom";
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();

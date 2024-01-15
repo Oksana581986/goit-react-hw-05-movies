@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import api from "components/services/api";
 import css from "components/Cast/Cast.module.css";
 
 
-const Cast = ({ movieId }) => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
+  const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';

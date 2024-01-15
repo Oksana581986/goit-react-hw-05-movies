@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import api from "components/services/api";
 import css from "components/Reviews/Reviews.module.css";
 
-const Reviews = ({ movieId }) => {
+const Reviews = () => {
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

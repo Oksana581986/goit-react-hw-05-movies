@@ -12,7 +12,7 @@ useEffect(() => {
     const getTrendingMovies = async () => {
       try {
         setIsLoading(true);
-        const response = await api.get('/trending/all/day');
+        const response = await api.get('/trending/movie/day');
         setTrendingMovies(response.data.results);
       } catch (error) {
         console.error('Error fetching trending movies:', error);

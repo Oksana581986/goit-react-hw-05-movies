@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import { Cast } from "components/Cast/Cast";
-import { Reviews } from "components/Reviews/Reviews";
-import { useParams, Routes, Route, useLocation, NavLink, Link, Outlet } from "react-router-dom";
+import { useParams, useLocation, NavLink, Link, Outlet } from "react-router-dom";
 import api from "components/services/api";
 import  css from "components/App.module.css";
 import { Loader } from "components/Loader/Loader";
@@ -61,16 +59,12 @@ const MovieDetails = () => {
         />
       )} 
   <p>Additional information</p>      
-  <NavLink className={({ isActive }) =>`${css.navLink} ${isActive ? css.active : ''}`} to={'сast'} >Cast</NavLink>
-  <NavLink className={({ isActive }) =>`${css.navLink} ${isActive ? css.active : ''}`} to={'reviews'}>Reviews</NavLink>
+  <NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to={'cast'} >Cast</NavLink>
+<NavLink className={({ isActive }) => `${css.navLink} ${isActive ? css.active : ''}`} to={'reviews'}>Reviews</NavLink>
   
    <div>
     <Suspense fallback={<Loader className={css.loader} />}>
-    <Routes>
-    <Route path="cast" element={<Cast movieId={movieId} />}/>
-    <Route path="reviews" element={<Reviews movieId={movieId} />}/>
-    </Routes>
-    <Outlet/>
+      <Outlet/>
     </Suspense>
     
     {error && <p style={{ color: 'red' }}>{error}</p>}

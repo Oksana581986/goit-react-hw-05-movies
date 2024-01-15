@@ -16,7 +16,7 @@ const Cast = () => {
       try {
         setIsLoading(true);
         const response = await api.get(`/movie/${movieId}/credits`);
-        setCast(response.data.results);
+        setCast(response.data.cast);
       } catch (error) {
         console.error("Error fetching cast:", error);
         setError("Error fetching cast. Please try again.");
